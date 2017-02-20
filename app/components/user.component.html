@@ -1,0 +1,32 @@
+<div>
+sdf  {{address.getcity()}}
+<br>
+hello  {{name}}
+<input type="text" [(ngModel)]="name">
+<br>
+<label for="">email is: </label>
+{{email}}
+<input type="email" [(ngModel)]="email" >
+</div>
+
+<div>
+<button (click)="toggleHobbies()" class="btn btn-default">{{showHobbies ? "hide hobbies" : "show hobbies"}}</button>
+
+<div *ngIf="showHobbies">
+    <h5>Hobbies :</h5>
+    <ul>
+        <li *ngFor="let hobby of hobbies; let i = index">
+            {{hobby}} <button (click)="removeHobby(i)">x</button>
+        </li>
+    </ul>
+    <form (submit)="addHobby(hobby.value)">
+        <label for="">Add hobby: </label>
+        <input type="text" #hobby>
+    </form>
+</div>
+</div>
+
+<div *ngFor="let post of posts">
+    <h3>{{post.title}}</h3>
+    <p>{{post.body}}</p>
+</div>
